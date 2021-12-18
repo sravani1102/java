@@ -1,0 +1,81 @@
+i.
+import java.util.*;
+class Outer  //outer class
+{
+	Scanner sc=new Scanner(System.in);
+	String outer_x=sc.nextLine();
+	class Inner      //inner class
+	{
+		void display()
+		{
+			System.out.println("Variable in Outer class outer_x : "+outer_x);
+		}
+	}
+	void test()
+	{
+		Inner i=new Inner();
+		i.display();
+	}
+}
+class InnerclassDemo
+{
+	public static void main(String args[])
+	{
+		Outer o=new Outer();
+		o.test();
+	}
+}
+
+ii.
+class Time
+{
+	int h;
+	int m;
+	int s;
+	Time()
+	{
+		h=10;
+		m=55;
+		s=45;
+	}
+	Time(int h)
+	{
+		this.h=h;
+		m=20;
+		s=10;
+	}
+	Time(int h,int m)
+	{
+		this.h=h;
+		this.m=m;
+		s=30;
+	}
+	Time(int h,int m,int s)
+	{
+		this.h=h;
+		this.m=m;
+		this.s=s;
+	}
+	void display()
+	{
+		System.out.println("Time in format Hours : Minutes : Seconds  = "+h+":"+m+":"+s);
+	}
+}
+class TimeDemo
+{
+	public static void main(String args[])
+	{
+		System.out.println("No parameters are passing to constructor");
+		Time t1=new Time();
+		t1.display();
+		System.out.println("one parameter is passing to constructor");
+		Time t2=new Time(12);
+		t2.display();
+		System.out.println("Two parameters are passing to constructor");
+		Time t3=new Time(15,25);
+		t3.display();
+		System.out.println("Three parameters are passing to constructor");
+		Time t4=new Time(8,55,59);
+		t4.display();
+	}
+}

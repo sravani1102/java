@@ -136,3 +136,73 @@ class StudentDemo
 		}
 	}
 }
+
+
+iii.
+import java.util.*;
+class Side
+{
+	double a;
+	double b;
+	double c;
+	double perimeter;
+	Side(double side1,double side2,double side3)
+	{
+		a=side1;
+		b=side2;
+		c=side3;
+	}
+	void length()
+	{
+		perimeter=a+b+c;
+		System.out.println("Length:"+perimeter);
+	}
+}
+class Triangle extends Side
+{
+	Triangle(double side1,double side2,double side3)
+	{
+		super(side1,side2,side3);
+	}
+	void length()
+	{
+		System.out.println("The sides of the triangle are :"+a+","+b+","+c);
+		System.out.println("The length of triangle ");
+		super.length();
+	}
+}
+class Cube extends Side
+{
+	Cube(double side)
+	{
+		super(side,side,side);
+	}
+	void length()
+	{
+		System.out.println("The side of the Cube are:"+a);
+		System.out.println("The length of Cube");
+		super.length();
+	}
+}
+class SideDemo
+{
+	public static void main(String args[])
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter sides of the triangle:");
+		double arr[]=new double[3];
+		int i;
+		double ar[]=new double[3];	
+		for(i=0;i<3;i++)
+		{
+			System.out.println("Enter side "+(i+1)+":");
+			arr[i]=sc.nextDouble();
+		}
+		Triangle t=new Triangle(arr[0],arr[1],arr[2]);
+		System.out.println("Enter side of the Cube:");
+		ar[0]=ar[1]=ar[2]=sc.nextDouble();
+		Cube c=new Cube(ar[0]);
+		t.length();
+		c.length();
+	}
+}

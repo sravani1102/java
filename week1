@@ -1,0 +1,61 @@
+import java.util.*;
+class Employee     //creating an employee class
+{
+	String name;
+	int ID;
+	double salary;
+	int hours;
+	void getInfo()
+	{
+		Scanner sc1=new Scanner(System.in);
+		System.out.println("Enter name of the employee:");
+		name=sc1.nextLine();
+		System.out.println("Enter employee id:");
+		ID=sc1.nextInt();
+		System.out.println("Enter employee salary:");
+		salary=sc1.nextDouble();
+		System.out.println("Enter numbers of hours employee worked:");
+		hours=sc1.nextInt();
+	}
+	void addsal()
+	{
+		if(salary<500.0)
+		{
+			salary=salary+10.0;
+		}
+	}
+	void addWork()
+	{
+		if(hours>6)
+		{
+			salary=salary+5.0;
+		}
+	}
+	void display()
+	{
+		System.out.println("The final salary of "+name+":"+ID+" worked "+hours+" hours:"+salary);
+	}
+}
+class EmployeeSalary
+{
+	public static void main(String args[])
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter number of employee:");
+		int n=sc.nextInt(),i;
+		Employee[] a=new Employee[n];   //creating array of objects
+		for(i=0;i<n;i++)
+		{
+			System.out.println("Employee:"+(i+1));
+			a[i]=new Employee();
+			a[i].getInfo();
+			a[i].addsal();
+			a[i].addWork();
+		}
+		for(i=0;i<n;i++)
+		{
+			System.out.println("Employee:"+(i+1));
+			a[i].display();    //displaying final salary of the employee
+		}
+	}
+}

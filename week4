@@ -171,7 +171,7 @@ class Triangle extends Side
 		super.length();
 	}
 }
-class Cube extends Side
+class Cube extends Side            //here it is wrong because the length of the cube is 6*a not 3*a check it once again while you are writing
 {
 	Cube(double side)
 	{

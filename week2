@@ -1,0 +1,141 @@
+i.
+import java.util.*;
+class UseStatic
+{
+	static int a1=10;  //creating static variables
+	static int b1,c1;
+	static int d;
+	static void method(int a) //static method
+	{
+		c1=a;
+		d=a1+b1+c1;
+	}
+	static
+	{
+		System.out.println("Static block is initialized");
+		b1=a1*2;
+	}
+	static class staticNestedclass  //Nested static class
+	{
+		static void display()
+		{
+			System.out.println("a1="+a1);
+			System.out.println("b1="+b1);
+			System.out.println("c1="+c1);
+			System.out.println(a1+"+"+b1+"+"+c1+"="+d);
+		}
+	}
+	public static void main(String args[])
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("enter a number:");
+		int a=sc.nextInt();
+		UseStatic.method(a);
+		staticNestedclass.display();
+	}
+}
+
+ii.
+//using this keyword
+import java.util.*;
+class A
+{
+	String name;
+	int id_no;
+	int DD,MM,YY;
+	float salary;
+	A(String name,int id_no,float salary,int DD,int MM,int YY)
+	{
+		this(DD,MM,YY);            //invoke constructor having different parameters using this
+		this.name=name;
+		this.id_no=id_no;            //invoke instance variables using this
+		this.salary=salary;
+	}
+	A(int DD,int MM,int YY)
+	{
+		this.DD=DD;
+		this.MM=MM;
+		this.YY=YY;
+	}
+	void display_Date_of_birth()
+	{
+		System.out.print("Date of birth : ");
+		System.out.println(DD+"-"+MM+"-"+YY);
+	}
+	void display()
+	{
+		System.out.println("Name : "+name);
+		System.out.println("ID no : "+id_no);
+		this.display_Date_of_birth();                //invoke current class method using this
+		System.out.println("Salary : $"+salary);
+	}
+}
+class ThisA
+{
+	public static void main(String args[])
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.print("Enter name:");
+		String name=sc.nextLine();
+		System.out.print("Enter id:");
+		int id_no=sc.nextInt();
+		System.out.print("Enter date of birth:");
+		int DD=sc.nextInt();
+		System.out.print("Enter month of birth:");
+		int MM=sc.nextInt();
+		System.out.print("Enter year of birth:");
+		int YY=sc.nextInt();
+		System.out.print("Enter salary:");
+		float salary=sc.nextFloat();
+		A a=new A(name,id_no,salary,DD,MM,YY);
+		a.display();
+	}
+}
+
+iii.
+//variable length arguments
+import java.util.*;
+class Student
+{
+	int total;
+	float average;
+	String name;
+	void get(String s1)
+	{
+		name=s1;
+		System.out.println("name:"+name);
+	}		
+	void Total(int ... a)
+	{
+		for(int i:a)
+		{
+			total=total+i;
+		}
+		average=(float)total/a.length;
+		System.out.println("The total score of student is :"+total);
+		System.out.println("The Average of student is:"+average);
+	}
+}
+class StudentDemo
+{
+	public static void main(String args[])
+	{
+		Student s[]=new Student[3];
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter names of the student");
+		String s1=sc.nextLine(),s2=sc.nextLine(),s3=sc.nextLine();
+		System.out.println("Student1:");
+		s[0]=new Student();
+		s[0].get(s1);
+		s[0].Total(70,86,95,85,92,86);
+		System.out.println("Student2:");
+		s[1]=new Student();
+		s[1].get(s2);
+		s[1].Total(73,65,61,72,90,82);
+		System.out.println("Student3:");
+		s[2]=new Student();
+		s[2].get(s3);
+		s[2].Total(62,98,76,80,76,87);
+	}
+}
+		

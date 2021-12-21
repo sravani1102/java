@@ -48,3 +48,71 @@ class MethodOverLoading
 		
     
 ii.
+import java.util.*;
+class Figure
+{
+	double a;
+	double b;
+	Figure(double length,double breadth)
+	{
+		a=length;
+		b=breadth;
+	}
+	void Area()
+	{
+		System.out.println("No dimensions");
+	}
+}
+class Rectangle extends Figure
+{
+	double area;
+	Rectangle(double length,double breadth)
+	{
+		super(length,breadth);
+	}
+	void Area()
+	{
+		area=a*b;
+		System.out.println("Rectangle:");
+		System.out.println("The dimensions:\nlength :"+a+"\nBreadth :"+b);
+		System.out.println("The area of the Rectangle :"+area);
+	}
+}
+class Triangle extends Figure
+{
+	double area;
+	Triangle(double base,double heigth)
+	{
+		super(base,heigth);
+	}
+	void Area()
+	{
+		area=a*b*0.5;
+		System.out.println("Triangle :");
+		System.out.println("The dimensions:\nBase :"+a+"\nHeigth :"+b);
+		System.out.println("The area of the Triangle :"+area);
+	}
+}
+class FigureDemo
+{
+	public static void main(String args[])
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Rectangle:\nEnter Dimensions:");
+		System.out.print("length:");
+		double l=sc.nextDouble();
+		System.out.print("breadth:");
+		double b=sc.nextDouble();
+		System.out.println("Triangle:\nEnter Dimensions:");
+		System.out.print("Base:");
+		double ba=sc.nextDouble();
+		System.out.print("Heigth:");
+		double h=sc.nextDouble();
+		Rectangle r=new Rectangle(l,b);
+		r.Area();
+		Triangle t=new Triangle(ba,h);
+		t.Area();
+	}
+}
+
+iii.

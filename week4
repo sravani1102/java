@@ -140,69 +140,70 @@ class StudentDemo
 
 iii.
 import java.util.*;
-class Side
+class Employee
 {
-	double a;
-	double b;
-	double c;
-	double perimeter;
-	Side(double side1,double side2,double side3)
+	String name;
+	int id;
+	double salary;
+	void read_emp()
 	{
-		a=side1;
-		b=side2;
-		c=side3;
-	}
-	void length()
-	{
-		perimeter=a+b+c;
-		System.out.println("Length:"+perimeter);
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter name of the employee:");
+		name=sc.nextLine();
+		System.out.println("Enter id of the employee:");
+		id=sc.nextInt();
+		System.out.println("Enter Salary of the employee:");
+		salary=sc.nextDouble();
 	}
 }
-class Triangle extends Side
+class Permanent_employee extends Employee
 {
-	Triangle(double side1,double side2,double side3)
+	void print_emp()
 	{
-		super(side1,side2,side3);
-	}
-	void length()
-	{
-		System.out.println("The sides of the triangle are :"+a+","+b+","+c);
-		System.out.println("The length of triangle ");
-		super.length();
+		super.read_emp();
+		salary=salary+0.05*salary;
+		System.out.println("Permanent employee Details:");
+		System.out.println("Name : "+name);
+		System.out.println("ID :"+id);
+		System.out.println("Final salary with 5% increment : "+salary);
 	}
 }
-class Cube extends Side            //here it is wrong because the length of the cube is 6*a not 3*a check it once again while you are writing
+class Temporary_employee extends Employee
 {
-	Cube(double side)
+	void print_emp()
 	{
-		super(side,side,side);
-	}
-	void length()
-	{
-		System.out.println("The side of the Cube are:"+a);
-		System.out.println("The length of Cube");
-		super.length();
+		super.read_emp();
+		salary=salary+0.035*salary;
+		System.out.println("Temporary employee Details:");
+		System.out.println("Name : "+name);
+		System.out.println("ID :"+id);
+		System.out.println("Final salary with 3.5% increment : "+salary);
 	}
 }
-class SideDemo
+class EmployeeDemo1
 {
 	public static void main(String args[])
 	{
-		Scanner sc=new Scanner(System.in);
-		System.out.println("Enter sides of the triangle:");
-		double arr[]=new double[3];
-		int i;
-		double ar[]=new double[3];	
-		for(i=0;i<3;i++)
+		Scanner s=new Scanner(System.in);
+		int ch;
+		System.out.println("1:Permanent Employee \n2:Temporary Employee \n3.exit");
+		a:
+		while(true)
 		{
-			System.out.println("Enter side "+(i+1)+":");
-			arr[i]=sc.nextDouble();
+			System.out.println("Enter your choice:");			
+			ch=s.nextInt();
+			switch(ch)
+			{
+				case 1:Permanent_employee p=new Permanent_employee();
+				       p.print_emp();
+				       break;
+				case 2:Temporary_employee t=new Temporary_employee();
+				       t.print_emp();
+				       break;
+				case 3:System.out.println("While loop is terminated");
+				       break a;
+				default:System.out.println("Check your choice");
+			}
 		}
-		Triangle t=new Triangle(arr[0],arr[1],arr[2]);
-		System.out.println("Enter side of the Cube:");
-		ar[0]=ar[1]=ar[2]=sc.nextDouble();
-		Cube c=new Cube(ar[0]);
-		t.length();
-		c.length();
 	}
 }

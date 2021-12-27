@@ -1,0 +1,57 @@
+import java.util.*;
+class FinalVariable
+{
+	final int a=10;
+	void display()
+	{
+		a=20;
+		System.out.println("a="+a);
+	}
+}
+class FinalMethod
+{
+	final void call()
+	{
+		System.out.println("Final method in class");
+	}
+}
+class Final extends FinalMethod
+{
+	void call()
+	{
+		super.call();
+		System.out.println("This sub class of FinalMethod");
+	}
+}
+final class FinalClass
+{
+	int a=10;
+	FinalClass()
+	{
+		System.out.println("a="+a);
+		System.out.println("This class declared with final");
+	}
+}
+class Final1 extends FinalClass
+{
+	int a=20;
+	Final1()
+	{
+		System.out.println("a="+a);
+		System.out.println("This sub class of class FinalClass");
+	}
+}
+class Demo
+{
+	public static void main(String args[])
+	{
+		System.out.println("Variable is declared as final:");
+		FinalVariable f=new FinalVariable();
+		f.display();
+		System.out.println("Method is declared as final");
+		Final f1=new Final();
+		f1.call();
+		System.out.println("Class is declared as final");
+		Final1 f2=new Final1();
+	}
+}

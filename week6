@@ -1,0 +1,86 @@
+import java.util.*;
+abstract class Shape     //Abstract Class
+{
+	double a;
+	double b;
+	Shape(double a,double b)
+	{
+		this.a=a;
+		this.b=b;
+	}
+	abstract void printArea();   //Abstract Method
+}
+class Rectangle extends Shape
+{
+	double area;
+	Rectangle(double l,double b)
+	{
+		super(l,b);
+	}
+	void printArea()
+	{
+		area=a*b;
+		System.out.println("Rectangle :");
+		System.out.println("Length : "+a+"\nBreadth : "+b);
+		System.out.println("The area of the Rectangle : "+area);
+	}
+}
+class Triangle extends Shape
+{
+	double area;
+	Triangle(double be,double h)
+	{
+		super(be,h);
+	}
+	void printArea()
+	{
+		area=0.5*a*b;
+		System.out.println("Triangle :");
+		System.out.println("Breadth : "+a+"\nHeigth : "+b);
+		System.out.println("The area of the Triangle : "+area);
+	}
+}
+class Circle extends Shape
+{
+	double area;
+	Circle(double r1,double r2)
+	{
+		super(r1,r2);
+	}
+	void printArea()
+	{
+		area=3.14*a*b;
+		System.out.println("Circle :");
+		System.out.println("Radius : "+a);
+		System.out.println("The area of the Circle : "+area);
+	}
+}
+class ShapeDemo
+{
+	public static void main(String args[])
+	{
+		Scanner sc=new Scanner(System.in);
+		double l,b;
+		System.out.println("Rectangle :");
+		System.out.println("Length :");
+		l=sc.nextDouble();
+		System.out.println("Breadth :");
+		b=sc.nextDouble();
+		double be,h;
+		System.out.println("Triangle :");
+		System.out.println("Breadth :");
+		be=sc.nextDouble();
+		System.out.println("Heigth :");
+		h=sc.nextDouble();
+		double r1,r2;
+		System.out.println("Circle :");
+		System.out.println("Radius :");
+		r1=r2=sc.nextDouble();
+		Rectangle r=new Rectangle(l,b);   //creating objects for Rectangle class
+		r.printArea();
+		Triangle t=new Triangle(be,h);	 //creating objects for Triangle class
+		t.printArea();
+		Circle c=new Circle(r1,r2);        //creating objects for Circle class
+		c.printArea();
+	}
+}

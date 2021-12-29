@@ -110,14 +110,14 @@ class Exam implements Student,Department        //Multiple Inheritance
 	}
 	public void getattendence()
 	{
-		System.out.print("Attendence : ");
+		System.out.print("Attendence : %");
 		attendence=sc.nextDouble();
 	}
 	void calattendence()
 	{
 		System.out.println("Name : "+name);
 		System.out.println("Class : B");
-		System.out.println("Attendence : "+attendence);
+		System.out.println("Attendence : %"+attendence);
 	}
 	void boolEligible()
 	{

@@ -1,0 +1,50 @@
+import java.util.*;
+class Student
+{
+	String n;
+	double a;
+	public void marks(String name,double Average) throws Exception
+	{
+		n=name;
+		a=Average;
+		if(a>80.0)
+		{
+			System.out.println(n+" is Eligible to enter into the University");
+		}
+		else
+		{
+			throw new Exception(n+" is not Eligible to enter into the University");
+		}
+	}
+}
+class StudentDemo
+{
+	public static void main(String args[])
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter number of the Students");
+		int n=sc.nextInt();
+		Student s[]=new Student[n];
+		for(int i=0;i<n;i++)
+		{
+			s[i]=new Student();
+			System.out.println("Student :"+(i+1));
+			System.out.print("Enter Student Name : ");
+			String name=sc.next();
+			System.out.print("Enter Average : ");
+			double Average=sc.nextDouble();
+			try
+			{
+				s[i].marks(name,Average);
+			}
+			catch(Exception e)
+			{
+				System.out.println(e);
+			}
+			finally
+			{
+				System.out.println("Student "+(i+1)+ " Eligibility is Successfully Checked");
+			}
+		}
+	}
+}

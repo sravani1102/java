@@ -1,19 +1,17 @@
 import java.util.*;
 class Student
 {
-	String n;
 	double a;
-	public void marks(String name,double Average) throws Exception
+	public void marks(double Average) throws Exception
 	{
-		n=name;
 		a=Average;
-		if(a>80.0)
+		if(a>60)
 		{
-			System.out.println(n+" is Eligible to enter into the University");
+			System.out.println("Eligible to enter into the University");
 		}
 		else
 		{
-			throw new Exception(n+" is not Eligible to enter into the University");
+			throw new Exception("NotEligibleException");
 		}
 	}
 }
@@ -33,9 +31,10 @@ class StudentDemo
 			String name=sc.next();
 			System.out.print("Enter Average : ");
 			double Average=sc.nextDouble();
+			System.out.println("Student"+(i+1)+" "+name);
 			try
 			{
-				s[i].marks(name,Average);
+				s[i].marks(Average);
 			}
 			catch(Exception e)
 			{
@@ -47,4 +46,4 @@ class StudentDemo
 			}
 		}
 	}
-}
+}	

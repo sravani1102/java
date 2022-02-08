@@ -1,0 +1,36 @@
+import java.util.*;
+class Array
+{
+	int size;
+	void arraySize(int n) throws Exception
+	{
+		size=n;
+		if(n<0)
+		{
+			throw new Exception("NegativeArraySizeException");
+		}
+		else
+		{
+			System.out.println("The Array size is "+size);
+		}	
+	}
+}
+class ArrayDemo
+{
+	public static void main(String args[])
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter Array size");
+		int n=sc.nextInt();
+		int[] a=new int[n];
+		try
+		{
+			Array ar=new Array();
+			ar.arraySize(n);
+		}
+		catch(Exception e)
+		{
+			System.out.println(e);
+		}
+	}
+}

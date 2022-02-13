@@ -9,10 +9,11 @@ class StringClass
 		String s=c.nextLine();
 		System.out.println("String : "+s);
 		//length of the String
-		System.out.println("Length of string "+s.length());
+		int n=s.length();
+		System.out.println("Length of string "+n);
 		//character at particular index 
 		char ch=s.charAt(3);
-		System.out.println("Character in String at index 3 '"+ch+"'");
+		System.out.println("Character in String at index 3 :'"+ch+"'");
 		//contains
 		if(s.contains("immutable"))
 		{
@@ -30,11 +31,10 @@ class StringClass
 		System.out.println("Convert string into Lower case \n"+s);
 		//Concatenation of two strings
 		s=s.concat("String class is defined in java.lang");
-		System.out.println("Concatenation:");
-		System.out.println(s);
+		System.out.println("Concatenation:\n"+s);
 		//Substring
 		s=s.substring(3,8);
-		System.out.println("Substring of string "+s);
+		System.out.println("Substring of string :'"+s+"'");
 	}
 }
 class StringBufferClass
@@ -42,14 +42,15 @@ class StringBufferClass
 	StringBufferClass()
 	{
 		Scanner c1=new Scanner(System.in);
+		System.out.println("Enter a String");
 		String str=c1.nextLine();
 		StringBuffer s=new StringBuffer();
 		//Append
 		s.append(str);
-		System.out.println("String append to empty String "+s);
+		System.out.println("String append to empty String :\n"+s);
 		//Capacity of current string
-		int n=s.capacity();
-		System.out.println("Capacity : "+n);
+		int m=s.capacity();
+		System.out.println("Capacity : "+m);
 		//codePointAt
 		int x=s.codePointAt(4);
 		System.out.println("Character at index 4 : '"+x+"'");
@@ -58,12 +59,11 @@ class StringBufferClass
 		System.out.println("Character before index 4 : '"+y+"'");
 		//delete
 		s.delete(13,19);
-		System.out.println("String after delete a substring : ");
+		System.out.println("String after deletion of substring : ");
 		System.out.println(s);
 		//insert
 		s.insert(13," class");
-		System.out.println("String after insert a substring : ");
-		System.out.println(s);
+		System.out.println("String after insert a substring : \n"+s);
 		//reverse
 		s.reverse();
 		System.out.println("String after reverse : ");
@@ -75,11 +75,11 @@ class CharSequence
 	public static void main(String args[])
 	{
 		Scanner sc=new Scanner(System.in);
-		System.out.println("1.String\n2.StringBuffer\n3.Exit\n");
+		System.out.println("1.String\n2.StringBuffer\n3.Exit");
 		a:
 		while(true)
 		{
-			System.out.println("Enter your choice");
+			System.out.print("Enter your choice:");
 			int ch=sc.nextInt();
 			switch(ch)
 			{

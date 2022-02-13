@@ -1,0 +1,98 @@
+import java.util.*;
+import java.lang.*;
+class StringClass
+{
+	StringClass()
+	{
+		Scanner c=new Scanner(System.in);
+		System.out.println("Enter a String");
+		String s=c.nextLine();
+		System.out.println("String : "+s);
+		//length of the String
+		System.out.println("Length of string "+s.length());
+		//character at particular index 
+		char ch=s.charAt(3);
+		System.out.println("Character in String at index 3 '"+ch+"'");
+		//contains
+		if(s.contains("immutable"))
+		{
+			System.out.println("The String contains a substring 'immutable'");
+		}
+		else
+		{
+			System.out.println("The String doesn't contain a substring 'immutable'");
+		}
+		//convert the string into upper Case
+		s=s.toUpperCase();
+		System.out.println("Convert string into Upper case \n"+s);
+		//convert the string into lower Case
+		s=s.toLowerCase();
+		System.out.println("Convert string into Lower case \n"+s);
+		//Concatenation of two strings
+		s=s.concat("String class is defined in java.lang");
+		System.out.println("Concatenation:");
+		System.out.println(s);
+		//Substring
+		s=s.substring(3,8);
+		System.out.println("Substring of string "+s);
+	}
+}
+class StringBufferClass
+{
+	StringBufferClass()
+	{
+		Scanner c1=new Scanner(System.in);
+		String str=c1.nextLine();
+		StringBuffer s=new StringBuffer();
+		//Append
+		s.append(str);
+		System.out.println("String append to empty String "+s);
+		//Capacity of current string
+		int n=s.capacity();
+		System.out.println("Capacity : "+n);
+		//codePointAt
+		int x=s.codePointAt(4);
+		System.out.println("Character at index 4 : '"+x+"'");
+		//codePointBefore
+		int y=s.codePointBefore(4);
+		System.out.println("Character before index 4 : '"+y+"'");
+		//delete
+		s.delete(13,19);
+		System.out.println("String after delete a substring : ");
+		System.out.println(s);
+		//insert
+		s.insert(13," class");
+		System.out.println("String after insert a substring : ");
+		System.out.println(s);
+		//reverse
+		s.reverse();
+		System.out.println("String after reverse : ");
+		System.out.println(s);
+	}
+}
+class CharSequence
+{
+	public static void main(String args[])
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("1.String\n2.StringBuffer\n3.Exit\n");
+		a:
+		while(true)
+		{
+			System.out.println("Enter your choice");
+			int ch=sc.nextInt();
+			switch(ch)
+			{
+				case 1:StringClass s1=new StringClass();
+				       //object for the class StringClass
+				       break;
+				case 2:StringBufferClass s2=new StringBufferClass();
+				       //object for the class StringBufferClass
+				       break;
+				case 3:System.out.println("While loop is terminated");
+				       break a;
+				default:System.out.println("Check your choice");
+			}
+		}
+	}
+}

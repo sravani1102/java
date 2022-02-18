@@ -1,0 +1,97 @@
+import java.lang.Math;
+import java.util.*;
+class RandomNumber extends Thread
+{
+	int x;
+	RandomNumber()
+	{
+		Random r=new Random();
+		x=r.nextInt(100);
+		start();
+	}
+	public void run()
+	{
+		try
+		{
+			if(x%2==0)
+			{
+				EvenThread t=new EvenThread(x);
+			}
+			else
+			{
+				OddThread o=new OddThread(x);
+			}
+		}
+		catch(Exception e)
+		{
+			System.out.println("Child Thread1 is interrupted");
+		}
+	}
+}
+class EvenThread extends Thread
+{
+	int x;
+	EvenThread(int x)
+	{
+		this.x=x;
+		start();
+	} 
+	public void run()
+	{
+		try
+		{
+			System.out.println(x+" is an Even number");
+			System.out.println("Square of "+x+": "+Math.pow(x,2));
+			//Thread.sleep(1000);
+		}
+		catch(Exception e)
+		{
+			System.out.println("Child Thread2 is interrupted");
+		}
+	}
+}
+class OddThread extends Thread
+{
+	int x;
+	OddThread(int x)
+	{
+		this.x=x;
+		start();
+	} 
+	public void run()
+	{
+		try
+		{
+			System.out.println(x+" is an Odd number");
+			System.out.println("Cube of "+x+": "+Math.pow(x,3));
+			//Thread.sleep(1000);
+		}
+		catch(Exception e)
+		{
+			System.out.println("Child Thread3 is interrupted");
+		}
+	}
+}
+class MultiThread
+{
+	public static void main(String args[])
+	{
+		int n;
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter number of random integers to generate:");
+		n=sc.nextInt();
+		try
+		{
+			for(int i=0;i<n;i++)
+			{
+				RandomNumber rn=new RandomNumber();
+				Thread.sleep(1000);
+			}
+		}
+		catch(Exception e)
+		{
+			System.out.println("Main Thread is interrupted");
+		}	
+	}
+}
+			

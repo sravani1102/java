@@ -1,0 +1,28 @@
+import java.awt.*;
+import java.applet.*;
+/*<applet code="AppletParameters" width=300 height=300>
+<param name="Name1" value="Sravani">
+<param name="Designation1" value="CEO">
+<param name="Company1" value="Google">
+<param name="Salary1" value="200000">
+<param name="Name2" value="Vindhya">
+<param name="Designation2" value="Manager">
+<param name="Company2" value="TCS">
+<param name="Salary2" value="15000">
+</applet>*/
+public class AppletParameters extends Applet
+{
+	public void paint(Graphics g)
+	{
+		g.drawString("Employee 1:",50,15);
+		g.drawString("Name : "+getParameter("Name1"),10,30);
+		g.drawString("Designation : "+getParameter("Designation1"),10,45);
+		g.drawString("Work Space : "+getParameter("Company1"),10,60);
+		g.drawString("Salary : "+getParameter("Salary1"),10,75);
+		g.drawString("Employee 2:",50,90);
+		g.drawString("Name : "+getParameter("Name2"),10,105);
+		g.drawString("Designation : "+getParameter("Designation2"),10,120);
+		g.drawString("Work Space : "+getParameter("Company2"),10,135);
+		g.drawString("Salary : "+getParameter("Salary2"),10,150);
+	}
+}

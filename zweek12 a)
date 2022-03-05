@@ -1,0 +1,71 @@
+import java.awt.event.*;
+import java.awt.*;
+import java.applet.*;
+/*<applet code="KeyHandling" width=500 height=500>
+</applet>*/
+public class KeyHandling extends Applet implements MouseListener,MouseMotionListener
+{
+	int x=0,y=0;
+	String msg="";
+	public void init()
+	{
+		addMouseListener(this);
+		addMouseMotionListener(this);
+	}
+	public void mouseClicked(MouseEvent me)
+	{
+		x=me.getX();
+		y=me.getY();
+		msg="Mouse Clicked";
+		repaint();
+	}
+	public void mouseEntered(MouseEvent me)
+	{
+		x=me.getX();
+		y=me.getY();
+		msg="Mouse Entered";	
+		repaint();
+	}
+	public void mouseExited(MouseEvent me)
+	{
+		x=me.getX();
+		y=me.getY();
+		msg="Mouse Exited";
+		repaint();	
+	}		
+	public void mousePressed(MouseEvent me)
+	{
+		x=me.getX();
+		y=me.getY();
+		msg="Mouse Pressed";
+		repaint();	
+	}	
+	public void mouseReleased(MouseEvent me)
+	{
+		x=me.getX();
+		y=me.getY();
+		msg="Mouse Released";	
+		repaint();
+	}	
+	public void mouseDragged(MouseEvent me)
+	{
+		x=me.getX();
+		y=me.getY();
+		msg="*";
+		showStatus("Mouse Dragged at:"+x+","+y);
+		repaint();
+	}	
+	public void mouseMoved(MouseEvent me)
+	{
+		x=me.getX();
+		y=me.getY();
+		showStatus("Mouse Moving from:"+x+","+y);
+		repaint();
+	}
+	public void paint(Graphics g)
+	{
+		setBackground(Color.yellow);
+		setForeground(Color.green);
+		g.drawString(msg,x,y);
+	}
+}

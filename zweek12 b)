@@ -1,0 +1,35 @@
+import java.awt.event.*;
+import java.awt.*;
+import java.applet.*;
+/*<applet code="KeyHandling" width=300 height=300>
+</applet>*/
+public class KeyHandling extends Applet implements KeyListener
+{
+	String msg="";
+	int x=0,y=0;
+	public void init()
+	{
+		addKeyListener(this);
+	}
+	public void keyPressed(KeyEvent ke)
+	{
+		showStatus("Key Pressed");
+	}
+	public void keyReleased(KeyEvent ke)
+	{
+		showStatus("Key Released");
+	}
+	public void keyTyped(KeyEvent ke)
+	{
+		x=100;
+		y=100;
+		msg+=ke.getKeyChar();
+		repaint();
+	}
+	public void paint(Graphics g)
+	{
+		setBackground(Color.yellow);
+		setForeground(Color.green);
+		g.drawString(msg,x,y);
+	}
+}
